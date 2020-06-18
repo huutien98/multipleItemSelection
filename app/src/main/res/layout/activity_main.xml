@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black000000"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rv_ralative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+        <ImageButton
+            android:layout_margin="10dp"
+            android:background="@drawable/ic_add"
+            android:id="@+id/btn_add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <ImageButton
+             android:layout_margin="10dp"
+            android:background="@drawable/ic_settings"
+            android:layout_toLeftOf="@+id/btn_close"
+            android:id="@+id/btn_settting"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <ImageButton
+            android:layout_margin="10dp"
+
+            android:background="@drawable/ic_close"
+            android:layout_alignParentRight="true"
+            android:id="@+id/btn_close"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="395dp" />
+    <LinearLayout
+        android:id="@+id/ln_layout"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toLeftOf="@id/guide_line2"
+        app:layout_constraintTop_toBottomOf="@+id/rv_ralative"
+        app:layout_constraintLeft_toRightOf="@+id/guide_line1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/TextAppearance.AppCompat"
+            android:id="@+id/tv_stcky_note"
+            android:textSize="25dp"
+            android:gravity="left"
+            android:textColor="@color/whileFFFFFF"
+            android:text="Stiky Note "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center"
+            android:id="@+id/tv_preview"
+            android:textColor="@color/grayFDE200"
+            android:gravity="center"
+            android:textSize="13dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/white_circle_drawable"
+            android:text="PREVIEW"
+            android:layout_width="85dp"
+            android:layout_height="25dp"/>
+    </LinearLayout>
+
+    <SearchView
+        android:layout_marginTop="7dp"
+        android:id="@+id/searchview"
+        android:background="@color/backgroundFDE200"
+        app:layout_constraintLeft_toRightOf="@id/guide_line1"
+        app:layout_constraintTop_toBottomOf="@+id/ln_layout"
+        app:layout_constraintRight_toLeftOf="@id/guide_line2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="7dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/guide_line1"
+        app:layout_constraintRight_toLeftOf="@id/guide_line2"
+        app:layout_constraintTop_toBottomOf="@+id/searchview" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

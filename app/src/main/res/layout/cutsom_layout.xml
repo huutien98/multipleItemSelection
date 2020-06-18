@@ -1,0 +1,50 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/whileFFFFFF"
+    android:orientation="vertical">
+<RelativeLayout
+    android:background="@color/yeallowFDE200"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@id/btn_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_close2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+    <ImageButton
+        android:id="@+id/btn_done"
+        android:layout_margin="10dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/ic_tick"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+
+</RelativeLayout>
+
+    <EditText
+        android:id="@+id/edt_text"
+        android:layout_width="match_parent"
+        android:layout_height="249dp"
+        android:layout_below="@+id/btn_close" />
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
