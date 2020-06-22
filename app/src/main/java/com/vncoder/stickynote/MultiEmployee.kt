@@ -5,5 +5,9 @@ class MultiEmployee {
     var address: String? = ""
     var phone: String? = ""
     var email: String? = ""
+    var another: String? = ""
+    var note: String = ""
+
+
 
 }

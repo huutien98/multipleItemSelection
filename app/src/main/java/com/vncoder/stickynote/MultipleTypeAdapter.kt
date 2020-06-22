@@ -20,9 +20,12 @@ class MultipleTypeAdapter(private val context: Context, private val employees: A
         else if (viewType == TYPE_ANOTHER){
             view = LayoutInflater.from(context).inflate(R.layout.another_item,viewGroup,false)
             AnotherViewHolder(view)}
-        else{
+        else if (viewType == TYPE_EMAIL){
             view = LayoutInflater.from(context).inflate(R.layout.mail_item, viewGroup, false)
             EmailViewHolder(view)
+        }else{
+            view = LayoutInflater.from(context).inflate(R.layout.default_item, viewGroup, false)
+            DefaultViewHolder(view)
         }
     }
     override fun getItemViewType(position: Int): Int{
@@ -30,8 +33,10 @@ class MultipleTypeAdapter(private val context: Context, private val employees: A
             TYPE_CALL
         } else if (TextUtils.isEmpty(employees[position].another)){
             TYPE_ANOTHER
-        }else{
+        }else if (TextUtils.isEmpty(employees[position].email)){
             TYPE_EMAIL
+        }else{
+            TYPE_DEFAULT
         }
     }
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
@@ -39,8 +44,10 @@ class MultipleTypeAdapter(private val context: Context, private val employees: A
             (viewHolder as CallViewHolder).setCallDetails(employees[position])
         } else if (getItemViewType(position) == TYPE_ANOTHER){
             (viewHolder as AnotherViewHolder).setAnotherDetails(employees[position])
-        } else{
+        } else if (getItemViewType(position) == TYPE_EMAIL){
             (viewHolder as EmailViewHolder).setEmailDetails(employees[position])
+        }else{
+            (viewHolder as DefaultViewHolder).setDefaultDetails(employees[position])
         }
     }
     override fun getItemCount(): Int {
@@ -86,11 +93,21 @@ class MultipleTypeAdapter(private val context: Context, private val employees: A
         }
     }
 
+    internal inner class DefaultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val txtNote: TextView
+        fun setDefaultDetails(employee: MultiEmployee) {
+            txtNote.text = employee.note
+        }
+        init {
+            txtNote = itemView.findViewById(R.id.txtNote)
+        }
+    }
+
     companion object {
         private const val TYPE_CALL = 1
         private const val TYPE_EMAIL = 2
         private const val TYPE_ANOTHER = 3
-        private const val TYPE_ACOUNT = 4
+        private const val TYPE_DEFAULT = 4
 
     }
 

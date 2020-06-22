@@ -8,12 +8,6 @@
     android:background="@color/yeallowFDE200"
     android:layout_width="match_parent"
     android:layout_height="45dp">
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_margin="10dp"
-        android:layout_toLeftOf="@id/btn_close"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
     <ImageButton
         android:id="@+id/btn_close"
         android:layout_margin="10dp"
@@ -28,12 +22,10 @@
         android:background="@drawable/ic_tick"
         android:layout_width="30dp"
         android:layout_height="30dp"/>
-
-
 </RelativeLayout>
 
     <EditText
-        android:id="@+id/edt_text"
+        android:id="@+id/edt_note"
         android:layout_width="match_parent"
         android:layout_height="249dp"
         android:layout_below="@+id/btn_close" />
